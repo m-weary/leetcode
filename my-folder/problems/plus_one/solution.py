@@ -1,17 +1,11 @@
 class Solution:
-    def plusOne(self, digits: List[int]):
-        digits = digits[::-1] #reverse the list
-        carry, i = 1,0
-        while carry == 1:
-            if i < len(digits):
-                if digits[i] == 9:
-                    digits[i] = 0
-                else:
-                    digits[i] += 1
-                    carry = 0
-            else:
-                digits.append(carry)
-                carry = 0
-            i += 1
-        return digits[::-1]
-                    
+    def plusOne(self, digits: List[int]) -> List[int]:
+        #Convert the number to a string, then join the list and convert to an integer
+        num = int(''.join(map(str, digits)))
+        #Add 1 to the number
+        plus_one = num + 1
+        #Convert back to string, and use list comprehension to put back into list
+        plus_one = str(plus_one)
+        final = [digit for digit in plus_one]
+        return final
+        
