@@ -1,10 +1,16 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        for i in range(len(nums) - 1):
-            for j in range(i+1,len(nums)):
-                if nums[i] + nums[j] == target:
-                    solution = [i,j]
-        return solution
+        #Can use a hashmap. Map Value to Index
+        hm = {}
+        
+        for index, value in enumerate(nums):
+            diff = target - value
+            if diff in hm:
+                return [hm[diff],index]
+            else:
+                hm[value] = index
             
-            
-            
+        
+        
+                
+                
